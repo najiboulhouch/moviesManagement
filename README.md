@@ -10,7 +10,7 @@ My application uses Symfony version 2.8 and AJAX for an enhanced user experience
 
 clone this repository into your working directory
 
-	git clone git@github.com:Developpersgroups/moviesManagement.git
+	git clone https://github.com/developpersgroups/moviesManagement.git
 
 Before starting, make sure that your local system is properly configured for Symfony.
 
