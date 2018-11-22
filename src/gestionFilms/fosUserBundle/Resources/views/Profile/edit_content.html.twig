@@ -1,0 +1,59 @@
+{% extends "gestionFilmsAdminBundle::base.html.twig" %}
+{% block title %}{{ parent() }} | mon profil {% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+{% block content %}
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="row-fluid">
+<div class="span12">
+    <h3 class="heading">{{ 'form.mod'|trans }}</h3>
+    <form class="form_validation_ttip" action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" >
+    <div class="formSep">
+        <div class="row-fluid">
+            <div class="span12">
+                {{ form_label(form.username , form.username)}}
+                {{ form_widget(form.username , { 'attr' :{'class':'span8'}} ) }}											
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                {{ form_label(form.email , form.email)}}
+                {{ form_widget(form.email , { 'attr' :{'class':'span8'}} ) }}											
+            </div>
+        </div>
+    </div>
+    <div class="formSep">
+        <div class="row-fluid">
+            <div class="span12">
+                {{ form_label(form.nom , form.nom)}}
+                {{ form_widget(form.nom , { 'attr' :{'class':'span8'}} ) }}											
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                {{ form_label(form.prenom , form.prenom)}}
+                {{ form_widget(form.prenom , { 'attr' :{'class':'span8'}} ) }}											
+            </div>
+        </div>
+    </div>
+    <div class="formSep">
+        <div class="row-fluid">
+            <div class="span12">
+                {{ form_label(form.current_password , form.current_password)}}
+                {{ form_widget(form.current_password , { 'attr' :{'class':'span8'}} ) }}											
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-inverse">{{'profile.edit.submit'|trans}}</button>	               
+        </div>
+        {{form_rest(form) }}
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script src="{{asset('lib/validation/jquery.validate.min.js')}}"></script>
+<script src="{{asset('js/gebo_validation.js')}}"></script>
+{% endblock %}

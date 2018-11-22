@@ -1,0 +1,39 @@
+{% extends "gestionFilmsAdminBundle::base.html.twig" %}
+{% block title %} {{ parent() }} | Acceuil {% endblock %}
+{% block stylesheets  %}
+{{ parent() }}
+{% endblock %}
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="heading">{{ 'page_acceuil.film'|trans }}</h3>
+        <br class="clear-fix"/>
+        <div id="large_grid" class="wmk_grid">
+            {% for entity in entities %}
+            <ul>
+                <li class="thumbnail">
+                    <a href="{{asset(entity.webPath)}}" class="ttip_r" title="{{ entity.titre }}">
+                    <img src="{{asset(entity.webPath)}}" alt="" class="ttip_r" title="{{ entity.titre }}" />
+                    </a>
+                    <p>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('film_edit' , { 'id':entity.id }) }}" title="{{ 'page_acceuil.modifier'|trans }}"><i class="icon-pencil"></i></a>
+                        <a href="{{path('film_delete' , { 'id': entity.id , 'type' : 1 }) }}" title="{{ 'page_acceuil.supprimer'|trans }}"><i class="icon-trash"></i></a>
+                        {% else %}
+                        <a href="{{ path('afficherFilm' , {'id': entity.id }) }}" title="{{ 'page_acceuil.afficher'|trans }}"><i class="icon-list"></i></a>
+                        {% endif %}
+                        <span>{{ entity.titre }}</span>
+                    </p>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script src="{{asset('js/jquery.imagesloaded.min.js')}}"></script>
+<script src="{{asset('js/jquery.wookmark.js')}}"></script>
+<script src="{{asset('js/gebo_gallery.js')}}"></script>
+{% endblock %}

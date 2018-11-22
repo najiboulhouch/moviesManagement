@@ -1,0 +1,30 @@
+film:
+    pattern:  /index.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:acceuil" }
+
+film_show:
+    pattern:  /{id}/affichier.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:afficherDetailFilm" }
+
+film_new:
+    pattern:  /formulaireAjout.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:formulaireAjouterFilm" }
+
+film_create:
+    pattern:  /ajouter.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:ajouterFilm" }
+    requirements: { _method: post }
+
+film_edit:
+    pattern:  /{id}/formulaireModification.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:formulaireModification" }
+
+film_update:
+    pattern:  /{id}/modification.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:modificationFilm" }
+    requirements: { _method: post }
+
+film_delete:
+    pattern:  /{id}/{type}/supprimer.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:supprimerFilm" }
+    requirements: { _method: get }

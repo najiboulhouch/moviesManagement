@@ -1,0 +1,83 @@
+{% extends "gestionFilmsfosUserBundle::layout.html.twig" %}
+{% block title %} {% endblock %}
+{% block stylesheets %} 
+<!-- Bootstrap framework -->
+<link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}" />
+<link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap-responsive.min.css')}}" />
+<!-- theme color-->
+<link rel="stylesheet" href="{{asset('css/blue.css')}}" />
+<!-- tooltip -->    
+<link rel="stylesheet" href="{{asset('lib/qtip2/jquery.qtip.min.css')}}" />
+<!-- main styles -->
+<link rel="stylesheet" href="{{asset('css/style.css')}}" />
+<!-- Favicons and the like (avoid using transparent .png) -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon-precomposed" href="icon.png" />
+<link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+<!--[if lte IE 8]>
+<script src="{{asset('js/ie/html5.js') }}"></script>
+<script src="{{asset('js/ie/respond.min.js' )}}"></script>
+<![endif]-->
+{% endblock %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block content %}
+<body class="login_page">
+    <div class="login_box">
+        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"  id="reg_form">
+        <div class="top_b">Inscription à gestion des films</div>
+        <div class="alert alert-login">
+            Vueillez s'inscrire pour consulter la liste des films.
+        </div>
+        <div class="cnt_b">
+            <div class="formRow">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-user"></i></span>{{ form_widget(form.username , {'attr':{'placeholder':'Login de l\'utilisateur' }}) }}
+                </div>
+            </div>
+            <div class="formRow">
+                <div class="input-prepend">
+                    <span class="add-on">@</span>{{ form_widget(form.email , {'attr':{'placeholder':'E-mail de l\'utilisateur' }}) }}
+                </div>
+            </div>
+            <div class="formRow">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-user"></i></span>{{ form_widget(form.nom , {'attr':{'placeholder':'Nom de l\'utilisateur' }}) }}
+                </div>
+            </div>
+            <div class="formRow">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-user"></i></span>{{ form_widget(form.prenom , {'attr':{'placeholder':'Prénom de l\'utilisateur' }}) }}
+                </div>
+            </div>
+            <div class="formRow">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-lock"></i></span>{{ form_widget(form.plainPassword.first , {'attr':{'placeholder':'Mot de passe de l\'utilisateur' }} ) }}
+                </div>
+            </div>
+            <div class="formRow">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-lock"></i></span>{{ form_widget(form.plainPassword.second , {'attr':{'placeholder':'Vérification de mot de passe de l\'utilisateur' }} ) }}
+                </div>
+            </div>
+            <div class="formRow">
+                {{ form_errors(form) }}
+            </div>
+            {{ form_widget(form._token) }}
+        </div>
+        <div class="btm_b tac">
+            <button class="btn btn-inverse" type="submit">{{ 'registration.submit'|trans }}</button>
+        </div>
+        </form>
+    </div>
+    <div class="links_b links_btm clearfix">
+        <span class="linkform" style="display:block;"><a href="{{path('fos_user_security_login')}}">{{ 'security.login.submit'|trans }}</a></span>
+    </div>
+    {% endblock %}
+    {% block body %}
+    {% endblock %}
+    {% block javascripts %}
+    <script src="{{ asset('js/jquery.min.js')}}"></script>
+    <script src="{{ asset('js/jquery.actual.min.js')}}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js')}}"></script>
+    <script></script>         
+    {% endblock %}

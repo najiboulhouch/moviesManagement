@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Liste des derniers films enregistrés</title>
+        <link href="{{ url('accueilUser') }}"/>
+        <description>affichage des nouveaux films</description>
+        <language>fr-fr</language>
+        <copyright>Copyright 2014</copyright>
+        <managingEditor>{{ app.user.email }}</managingEditor>
+        <pubDate>{{ "now"|date("m/d/Y") }}</pubDate>
+        {% for entity in entities %}
+        <item>
+            <title>{{ entity.titre }}</title>
+            <description>{{ entity.resume }}</description>           
+            <link> {{ path('afficherFilm' , {'id':entity.id }) }}</link>            
+            <guid>{{ feedId }}</guid>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>

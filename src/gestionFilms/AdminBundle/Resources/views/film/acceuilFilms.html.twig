@@ -1,0 +1,52 @@
+{% extends "gestionFilmsAdminBundle::base.html.twig" %}
+{% block title %} {{ parent() }} | Acceuil {% endblock %}
+{% block stylesheets  %}
+{{ parent() }}
+<link rel="alternate" type="application/rss+xml" title="Latest Jobs" href="{{ url('flux_rss')}}" />
+{% endblock %}
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="heading">{{ 'page_acceuil.film'|trans }}</h3>
+        <div class="right">
+            <a href="{{ path('film_new')}}" class="btn btn-info">
+            <i class="icon-edit icon-white"></i> {{ 'form.ajouter'|trans }}
+            </a>
+            <a href="{{ path('flux_rss')}}" class="btn btn-info">
+            <i class="icon-glass icon-white"></i>  {{ 'form.flux'|trans }}
+            </a>
+        </div>
+        <br class="clear-fix"/>
+        <table class="table table-striped table-bordered dTableR" id="dt_a">
+            <thead>
+                <tr>
+                    <th>{{ 'form.titre'|trans }}</th>
+                    <th>{{ 'form.categorie.label'|trans }}</th>
+                    <th>{{ 'form.date'|trans }}</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entity in entities %}
+                <tr class="gradeU">
+                    <td style="width: 500px;">{{ entity.titre }}</td>
+                    <td>{{ entity.genre }}</td>
+                    <td>{{ entity.anneeSortie|date(' d/m/Y') }}</td>
+                    <td class="center">
+                        <a class="btn btn-info" href="{{path('film_show' , { 'id': entity.id }) }}">{{ 'form.afficher'|trans }}</a>
+                        <a class="btn btn-success" href="{{path('film_edit'  , { 'id':entity.id}) }}">{{ 'form.modifier'|trans }}</a>
+                        <a class="btn btn-danger" href="{{path('film_delete' , { 'id': entity.id , 'type' :0 }) }}">{{ 'form.supprimer'|trans }}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script src="{{asset('lib/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('lib/datatables/extras/Scroller/media/js/Scroller.min.js')}}"></script>
+<script src="{{asset('js/gebo_datatables.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,9 @@
+gestion_filmsfos_user:
+    resource: "@gestionFilmsfosUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+gestion_films_admin:
+    resource: "@gestionFilmsAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+

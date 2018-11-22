@@ -1,0 +1,9 @@
+services:
+    app.form.registration:
+        class: gestionFilms\fosUserBundle\Form\RegistrationFormType
+        tags:
+            - { name: form.type, alias: app_user_registration }
+    app.form.profile:
+        class: gestionFilms\fosUserBundle\Form\ProfileFormType
+        tags:
+            - { name: form.type, alias: app_user_profile }        

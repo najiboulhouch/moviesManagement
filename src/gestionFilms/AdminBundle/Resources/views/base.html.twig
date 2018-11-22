@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %} Gestion des films {% endblock %}</title>
+        {% block stylesheets %}
+        <!-- Bootstrap framework -->
+        <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}" />
+        <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap-responsive.min.css')}}" />
+        <!-- gebo blue theme-->
+        <link rel="stylesheet" href="{{asset('css/green.css')}}" id="link_theme" />
+        <!-- tooltips-->
+        <link rel="stylesheet" href="{{asset('lib/qtip2/jquery.qtip.min.css')}}" />
+      
+        <!-- code prettify -->
+        <link rel="stylesheet" href="{{asset('lib/google-code-prettify/prettify.css')}}" />
+        <!-- colorbox -->
+        <link rel="stylesheet" href="{{asset('lib/colorbox/colorbox.css')}}" />
+        <!-- notifications -->
+        <link rel="stylesheet" href="{{asset('lib/sticky/sticky.css')}}" />
+        <link rel="stylesheet" href="{{asset('img/flags/flags.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/style.css')}}" />
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans" />
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico" />
+        <!--[if lte IE 8]>
+        <link rel="stylesheet" href="{{asset('css/ie.css') }}" />
+        <script src="{{asset('js/ie/html5.js')}}"></script>
+        <script src="{{asset('js/ie/respond.min.js')}}"></script>
+        <![endif]-->
+        {% endblock %}
+        <script>
+            //* hide all elements & show preloader
+            document.getElementsByTagName('html')[0].className = 'js';
+        </script>
+        <!-- Shared on MafiaShare.net  --><!-- Shared on MafiaShare.net  -->
+    </head>
+    <body>
+        <div id="loading_layer" style="display:none"><img src="{{asset('img/ajax_loader.gif')}}" alt="" /></div>
+        <div class="style_switcher">
+            <div class="sepH_c">
+                <p>Colors:</p>
+                <div class="clearfix">
+                    <a href="javascript:void(0)" class="style_item jQclr blue_theme style_active" title="blue">blue</a>
+                    <a href="javascript:void(0)" class="style_item jQclr dark_theme" title="dark">dark</a>
+                    <a href="javascript:void(0)" class="style_item jQclr green_theme" title="green">green</a>
+                    <a href="javascript:void(0)" class="style_item jQclr brown_theme" title="brown">brown</a>
+                    <a href="javascript:void(0)" class="style_item jQclr eastern_blue_theme" title="eastern_blue">eastern blue</a>
+                    <a href="javascript:void(0)" class="style_item jQclr tamarillo_theme" title="tamarillo">tamarillo</a>
+                </div>
+            </div>
+            <div class="sepH_c">
+                <p>Backgrounds:</p>
+                <div class="clearfix">
+                    <span class="style_item jQptrn style_active ptrn_def" title=""></span>
+                    <span class="ssw_ptrn_a style_item jQptrn" title="ptrn_a"></span>
+                    <span class="ssw_ptrn_b style_item jQptrn" title="ptrn_b"></span>
+                    <span class="ssw_ptrn_c style_item jQptrn" title="ptrn_c"></span>
+                    <span class="ssw_ptrn_d style_item jQptrn" title="ptrn_d"></span>
+                    <span class="ssw_ptrn_e style_item jQptrn" title="ptrn_e"></span>
+                </div>
+            </div>
+            <div class="sepH_c">
+                <p>Sidebar position:</p>
+                <div class="clearfix">
+                    <label class="radio inline"><input type="radio" name="ssw_sidebar" id="ssw_sidebar_left" value="" checked /> Left</label>
+                    <label class="radio inline"><input type="radio" name="ssw_sidebar" id="ssw_sidebar_right" value="sidebar_right" /> Right</label>
+                </div>
+            </div>
+        </div>
+        <div id="maincontainer" class="clearfix">
+            <!-- header -->
+            <header>
+                <div class="navbar navbar-fixed-top">
+                    <div class="navbar-inner">
+                        <div class="container-fluid">
+                            <a class="brand" href="#"><i class="icon-home icon-white"></i> Gestion des films</a>
+                            <ul class="nav user_menu pull-right">
+                                <li class="divider-vertical hidden-phone hidden-tablet"></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle nav_condensed" data-toggle="dropdown">Traduction<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ path('changerLangue' , {'_locale':'fr'}) }}"><i class="flag-fr"></i> {{ 'page_acceuil.traduction.fr'|trans }}</a></li>
+                                        <li><a href="{{ path('changerLangue' , {'_locale':'en'}) }}"><i class="flag-us"></i> {{ 'page_acceuil.traduction.en'|trans }}</a></li>
+                                    </ul>
+                                </li>
+                                <li class="divider-vertical hidden-phone hidden-tablet"></li>
+                                <li>
+                                    <a href="#"><i class="icon-user icon-white"></i> {{ 'page_acceuil.bienvenue'|trans }} {{app.user.username }}</a>
+                                </li>
+                            </ul>
+                            <a data-target=".nav-collapse" data-toggle="collapse" class="btn_menu">
+                            <span class="icon-align-justify icon-white"></span>
+                            </a>
+                            <nav>
+                                <div class="nav-collapse">
+                                    <ul class="nav">
+                                        <li>
+                                            <a href="{{ path('accueilUser') }}"><i class="icon-home icon-white"></i> {{ 'page_acceuil.Acceuil'|trans }}</a>
+                                        </li>
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                        <li>
+                                            <a href="{{path('film')}}"><i class="icon-edit icon-white"></i> {{ 'page_acceuil.gestion_film' |trans }}</a>
+                                        </li>
+                                        {% endif %}
+                                        <li>
+                                            <a href="{{path('fos_user_profile_show') }}"><i class="icon-picture icon-white"></i> {{ 'page_acceuil.Profil'|trans }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{path('recherhceFilm') }}"><i class="icon-search icon-white"></i> {{ 'page_acceuil.reche'|trans }}</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{path('fos_user_security_logout')}}"><i class="icon-off icon-white"></i> {{ 'page_acceuil.deconnexion'|trans}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- main content -->
+            <div id="contentwrapper">
+                <div class="main_content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+            <!-- sidebar -->
+            <a href="javascript:void(0)" class="sidebar_switch on_switch ttip_r" title="Hide Sidebar">Sidebar switch</a>
+            <div class="sidebar">
+                <div class="antiScroll">
+                    <div class="antiscroll-inner">
+                        <div class="antiscroll-content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% block javascripts %}
+            <script src="{{asset('js/jquery.min.js')}}"></script>
+            <!-- smart resize event -->
+            <script src="{{asset('js/jquery.debouncedresize.min.js')}}"></script>
+            <!-- hidden elements width/height -->
+            <script src="{{asset('js/jquery.actual.min.js')}}"></script>
+            <!-- js cookie plugin -->
+            <script src="{{asset('js/jquery.cookie.min.js')}}"></script>
+            <!-- main bootstrap js -->
+            <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+            <!-- tooltips -->
+            <script src="{{asset('lib/qtip2/jquery.qtip.min.js')}}"></script>
+            <script src="{{asset('lib/sticky/sticky.min.js')}}"></script>
+            <script src="{{asset('js/ios-orientationchange-fix.js')}}"></script>
+            <script src="{{asset('lib/colorbox/jquery.colorbox.min.js')}}"></script>
+            <!-- scrollbar -->
+            <script src="{{asset('lib/antiscroll/antiscroll.js')}}"></script>
+            <script src="{{asset('lib/antiscroll/jquery-mousewheel.js')}}"></script>
+            <!-- common functions -->
+            <script src="{{asset('js/gebo_common.js')}}"></script>
+            <script>
+                $(document).ready(function() {
+                	setTimeout('$("html").removeClass("js")',1000);
+                });
+            </script>
+            {% endblock %}
+        </div>
+    </body>
+</html>

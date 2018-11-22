@@ -1,0 +1,70 @@
+{% extends "gestionFilmsAdminBundle::base.html.twig" %}
+{% block title %} {{ parent() }} | {{ entity.titre }} {% endblock %}
+{% block stylesheets  %}
+{{ parent() }}
+{% endblock %}
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <h3 class="heading">{{ 'information.label'|trans }}</h3>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="vcard">
+                    <img class="thumbnail" src="{{ asset(entity.webPath)}}" width="100" height="100" alt="" />
+                    <ul>
+                        <li class="v-heading">
+                            {{ entity.titre|upper }}
+                        </li>
+                        <li>
+                            <span class="item-key">{{ 'information.categorie'|trans }}</span>
+                            <div class="vcard-item">{{ entity.genre }}</div>
+                        </li>
+                        <li>
+                            <span class="item-key">{{ 'information.date'|trans }}</span>
+                            <div class="vcard-item">{{ entity.anneeSortie|date('d/m/y')}}</div>
+                        </li>
+                        <li>
+                            <span class="item-key">{{ 'information.duree'|trans }}</span>
+                            <div class="vcard-item">{{ entity.duree}} Minutes</div>
+                        </li>
+                        <li>
+                            <span class="item-key">{{ 'information.realisateur'|trans }}</span>
+                            <div class="vcard-item">{{ entity.realisateur }}</div>
+                        </li>
+                        <li>
+                            <span class="item-key">{{ 'information.langue'|trans }}</span>
+                            <div class="vcard-item">
+                                <ul class="list_a">
+                                    <li>{{ entity.langue}} </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="item-key">{{ 'information.resume'|trans }}</span>
+                            <div class="vcard-item">
+                                {{ entity.resume }}
+                            </div>
+                        </li>
+                        <li>
+                            <span class="item-key">{{ 'information.acteurP'|trans }}</span>
+                            <div class="vcard-item">
+                                {{ entity.acteurPrincipal }}
+                            </div>
+                        </li>
+                        <li>
+                            <span class="item-key">{{ 'information.acteursS'|trans }}</span>
+                            <div class="vcard-item">
+                                {{ entity.acteursescondaires }}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script src="{{asset('js/gebo_user_static.js')}}"></script>
+{% endblock %}

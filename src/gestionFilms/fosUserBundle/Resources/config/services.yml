@@ -1,0 +1,7 @@
+parameters:
+#    lastim_ifos_user.example.class: LASTIMI\fosUserBundle\Example
+
+services:
+#    lastim_ifos_user.example:
+#        class: %lastim_ifos_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

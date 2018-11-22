@@ -1,0 +1,7 @@
+parameters:
+#    gestion_films_admin.example.class: gestionFilms\AdminBundle\Example
+
+services:
+#    gestion_films_admin.example:
+#        class: %gestion_films_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

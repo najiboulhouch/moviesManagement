@@ -1,0 +1,5 @@
+form:
+        nom: 'First name'
+        prenom: 'Last name'
+        label: 'My profil'
+       

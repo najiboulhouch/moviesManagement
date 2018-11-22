@@ -1,0 +1,35 @@
+gestion_films_admin_film:
+    resource: "@gestionFilmsAdminBundle/Resources/config/routing/film.yml"
+    prefix:   /admin/{_locale}/film
+    requirements:
+                _locale: en|fr
+accueilUser:
+    pattern:  /{_locale}/Accueil.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:accueilUser" }
+    requirements:
+                _locale: en|fr
+afficherFilm:
+    pattern:  /{id}/{_locale}/details.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:afficherFilm" }
+    requirements:
+                _locale: en|fr
+changerLangue:
+    pattern:  /{_locale}/Accueil1.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:changerLangue" }
+    requirements:
+                _locale: en|fr
+flux_rss:
+    pattern:  /{_locale}/flux.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:genererFluxRss" }
+    requirements:
+                _locale: en|fr
+recherhceFilm:
+    pattern:  /{_locale}/recherhceFilm.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:recherhceFilm" }
+    requirements:
+                _locale: en|fr  
+recherhceFilmAjax:
+    pattern:  /{_locale}/{id}/recherhceFilmAjax.php
+    defaults: { _controller: "gestionFilmsAdminBundle:film:recherhceFilmAjax" }
+    requirements:
+                _locale: en|fr 

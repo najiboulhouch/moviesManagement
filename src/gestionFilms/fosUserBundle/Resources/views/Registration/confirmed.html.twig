@@ -1,0 +1,14 @@
+{% extends "gestionFilmsfosUserBundle::layout.html.twig" %}
+{% block title %} Confirmation {% endblock %}
+{% block stylesheets %} 
+<link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}" />
+<link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap-responsive.min.css')}}" />
+{% endblock %}
+{% block fos_user_content %}
+<div class="alert alert-info center span5 offset5" style="margin-top: 200px;">
+    <p>
+    <h3>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</h3>
+    </p>
+    <a class="btn btn-inverse" href="{{path('accueilUser') }}"><i class="icon-home icon-white"></i>Consulter les films</a> 
+</div>
+{% endblock fos_user_content %}

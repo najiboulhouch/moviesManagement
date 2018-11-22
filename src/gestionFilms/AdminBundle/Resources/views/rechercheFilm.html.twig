@@ -1,0 +1,366 @@
+{% extends "gestionFilmsAdminBundle::base.html.twig" %}
+{% block title %} {{ parent() }} | Acceuil {% endblock %}
+{% block stylesheets  %}
+{{ parent() }}
+{% endblock %}
+{% block content %}
+<div class="row-fluid">
+    <div class="span6">
+        <h3 class="heading">{{ 'page_acceuil.recherche'|trans }}</h3>
+        <div id="countries">
+            <dl>
+                <dt>A</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'a' or entity.titre|slice(0, 1) == 'A' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>B</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'b' or entity.titre|slice(0, 1) == 'B' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>C</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'c' or entity.titre|slice(0, 1) == 'C' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>D</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'd' or entity.titre|slice(0, 1) == 'D' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>E</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'e' or entity.titre|slice(0, 1) == 'E' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>F</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'f' or entity.titre|slice(0, 1) == 'F' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>G</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'g' or entity.titre|slice(0, 1) == 'G' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>H</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'h' or entity.titre|slice(0, 1) == 'H' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>I</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'i' or entity.titre|slice(0, 1) == 'I' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>J</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'j' or entity.titre|slice(0, 1) == 'J' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>K</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'k' or entity.titre|slice(0, 1) == 'K' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>L</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'l' or entity.titre|slice(0, 1) == 'L' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>M</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'm' or entity.titre|slice(0, 1) == 'M' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>N</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'n' or entity.titre|slice(0, 1) == 'N' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>O</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'o' or entity.titre|slice(0, 1) == 'O' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>P</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'p' or entity.titre|slice(0, 1) == 'P' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>Q</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'q' or entity.titre|slice(0, 1) == 'Q' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>R</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'r' or entity.titre|slice(0, 1) == 'R' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>S</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 's' or entity.titre|slice(0, 1) == 'S' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>T</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 't' or entity.titre|slice(0, 1) == 'T' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>U</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'u' or entity.titre|slice(0, 1) == 'U' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>V</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'v' or entity.titre|slice(0, 1) == 'V' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>W</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'w' or entity.titre|slice(0, 1) == 'W' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>X</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'x' or entity.titre|slice(0, 1) == 'X' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+            <dl>
+                <dt>Y</dt>
+                {% set etat = false %}
+                {% for entity in entities %}
+                {% if entity.titre|slice(0, 1) == 'y' or entity.titre|slice(0, 1) == 'Y' %}
+                <dd><a href="#" id="{{ entity.id }}" >{{ entity.titre}}</a></dd>
+                {% set etat = true %}
+                {% endif %}                                   
+                {% endfor %}
+                {% if etat == false %}
+                <dd> 0 films enregistrés</dd>
+                {% endif %}
+            </dl>
+        </div>
+    </div>
+    <div class="span6">
+        <div id="response"> </div>
+        <div id="loading" style="display: none;"><img src="{{ asset('img/ajax_loader.gif')}}"></div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+<script src="{{asset('lib/floating_header/jquery.list.min.js')}}"></script>
+<!-- floating list header functions -->
+<script src="{{asset('js/gebo_floating_header.js')}}"></script>
+<script>
+    $(document).ready(function() {
+    {% for entity in  entities %}
+    $('#'+{{entity.id}}).click(function() {
+    $("#response").fadeOut();     
+    $("#loading").fadeIn();
+    $.ajax({type: 'POST',
+    url: "{{path('recherhceFilmAjax' , {'id':entity.id })}}",
+    success: function(data) {
+    $("#loading").fadeOut();
+    $("#response").fadeIn(); 
+    $("#response").html(data);
+    }});
+    });
+        {% endfor %}          
+    });
+</script>
+{% endblock %}

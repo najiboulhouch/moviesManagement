@@ -1,0 +1,5 @@
+form:
+        nom: "Nom"
+        prenom: "Prénom"
+        label: "Mon profil"
+        mod: "Modifier mon profil"
